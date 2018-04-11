@@ -4,8 +4,7 @@ user_guess = 0
 attempt = 1
 
 
-secret_beginning = secret - 10
-secret_end = secret + 10
+
 
 while user_guess != secret:
     print("This is attempt #" + str(attempt))
@@ -14,8 +13,10 @@ while user_guess != secret:
     user_guess = int(user_guess)
     if user_guess == secret:
         print("Congratulations, you've guessed the correct number. Here's a well-deserved cookie.")
-    else:
+    elif int(user_guess) > int(secret):
         print("Sorry, the number " + str(user_guess) + " is not correct")
-        print("The correct number is between " + str(secret_beginning) + " and " + str(secret_end))
-        # print("The correct number was: ")
+        print("The correct number is smaller than the one you wrote")
+    elif user_guess < secret:
+         print("Sorry, the number " + str(user_guess) + " is not correct")
+         print("The correct number is larger than the one you wrote")
     attempt += 1
